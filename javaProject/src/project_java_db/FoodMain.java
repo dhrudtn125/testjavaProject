@@ -306,7 +306,7 @@ public class FoodMain extends JFrame {
 //	}
 	
 	public void list() {
-		model = new DefaultTableModel((Vector) dao.listFood(dto2), col) {
+		model = new DefaultTableModel((Vector) dao.listFood(), col) {
 			@Override
 			public boolean isCellEditable(int row, int column) {
 				return false;

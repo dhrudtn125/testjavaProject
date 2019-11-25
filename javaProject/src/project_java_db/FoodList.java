@@ -90,7 +90,6 @@ public class FoodList extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				int idx = table.getSelectedRow();
-				tfPrice.setEditable(false);
 				tfPrice.setText(table.getValueAt(idx, 1)+"");
 				tfFoodname.setText(table.getValueAt(idx, 0)+"");
 				tfKind.setText(table.getValueAt(idx, 2)+"");
@@ -145,6 +144,9 @@ public class FoodList extends JFrame {
 					list();
 					table.setModel(model);
 					clear();
+				}else
+				{
+					JOptionPane.showMessageDialog(FoodList.this, "저장에 실패 하였습니다.");
 				}
 				
 			}
@@ -257,5 +259,4 @@ public class FoodList extends JFrame {
 		};
 	}
 }
-
 

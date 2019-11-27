@@ -178,14 +178,6 @@ public class FoodMain extends JFrame {
 		JRadioButton rdNoodle = new JRadioButton("면 류");
 		rdNoodle.setFont(new Font("배달의민족 주아", Font.PLAIN, 15));
 		rdNoodle.addItemListener(new ItemListener() {
-			public void listSide() {
-				model = new DefaultTableModel((Vector) dao.listFoodSide(dto2), col) {
-					@Override
-					public boolean isCellEditable(int row, int column) {
-						return false;
-					}
-				};
-			}
 			public void itemStateChanged(ItemEvent e) {
 				listNoodle();
 				table = new JTable(model);
@@ -331,6 +323,14 @@ public class FoodMain extends JFrame {
 	}
 	public void listNoodle() {
 		model = new DefaultTableModel((Vector) dao.listFoodNoodle(dto2), col) {
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
+	}
+	public void listSide() {
+		model = new DefaultTableModel((Vector) dao.listFoodSide(dto2), col) {
 			@Override
 			public boolean isCellEditable(int row, int column) {
 				return false;

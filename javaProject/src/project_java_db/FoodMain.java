@@ -105,7 +105,14 @@ public class FoodMain extends JFrame {
 				lblpoint.setText("총 : "+Integer.toString(getSum())+"원");
 			}
 		});
-		
+		public void listSide() {
+			model = new DefaultTableModel((Vector) dao.listFoodSide(dto2), col) {
+				@Override
+				public boolean isCellEditable(int row, int column) {
+					return false;
+				}
+			};
+		}
 			model2 = new DefaultTableModel(col, 0) {
 				@Override
 				public boolean isCellEditable(int row, int column) {
@@ -329,14 +336,7 @@ public class FoodMain extends JFrame {
 			}
 		};
 	}
-	public void listSide() {
-		model = new DefaultTableModel((Vector) dao.listFoodSide(dto2), col) {
-			@Override
-			public boolean isCellEditable(int row, int column) {
-				return false;
-			}
-		};
-	}
+	
 	
 	public int getSum() {
 		int rowsCount = table_1.getRowCount();
